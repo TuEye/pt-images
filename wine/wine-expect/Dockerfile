@@ -1,5 +1,5 @@
 # ----------------------------------
-# Generic Wine image w/ steamcmd support
+# Generic Wine image w/ steamcmd support and expect
 # Environment: Debian 19 Buster + Wine Stable
 # Minimum Panel Version: 0.7.15
 # ----------------------------------
