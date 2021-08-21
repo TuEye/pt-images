@@ -1,6 +1,6 @@
 # ----------------------------------
 # Generic Wine image w/ steamcmd support
-# Environment: Debian 19 Buster + Wine 5.0
+# Environment: Debian 19 Buster + Wine Stable
 # Minimum Panel Version: 0.7.15
 # ----------------------------------
 FROM quay.io/parkervcp/pterodactyl-images:base_debian
