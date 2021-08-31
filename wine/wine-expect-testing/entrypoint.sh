@@ -76,9 +76,10 @@ for trick in $WINETRICKS_RUN; do
         winetricks -q $trick
 done
 
-# Replace Startup Variables
-MODIFIED_STARTUP=$(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
-echo ":/home/container$ ${MODIFIED_STARTUP}"
+# Replace variables in the startup command
+PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
+printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 
-# Run the Server
-exec ${MODIFIED_STARTUP}
+# Run the startup command
+# shellcheck disable=SC2086
+exec env ${PARSED}
