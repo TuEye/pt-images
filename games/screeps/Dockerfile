@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM debian:stable-slim
+FROM        --platform=$BUILDPLATFORM node:16-buster-slim
 
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
@@ -30,9 +30,9 @@ LABEL       org.opencontainers.image.licenses=MIT
 ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN         apt update \
-				&& apt upgrade -y \
-				&& apt install -y tar curl build-essential tcl git python mongodb redis iproute2 telnet net-tools netcat tzdata \
-				&& useradd -m -d /home/container container
+              && apt upgrade -y \
+              && apt install -y tar curl git python redis-server iproute2 telnet net-tools netcat tzdata gnupg \
+              && useradd -m -d /home/container container
 
 USER        container
 ENV         USER=container HOME=/home/container
