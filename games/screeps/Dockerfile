@@ -32,7 +32,7 @@ ENV         DEBIAN_FRONTEND=noninteractive
 RUN         apt update \
               && apt upgrade -y \
               && apt install -y tar curl git build-essential tcl python python3 redis-server iproute2 telnet net-tools netcat tzdata gnupg \
-              && service redis-server start \
+              && update-rc.d redis-server defaults \
               && useradd -m -d /home/container container
 
 USER        container
