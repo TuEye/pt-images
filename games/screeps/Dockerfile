@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM node:16-buster-slim
+FROM        --platform=$BUILDPLATFORM node:12-buster-slim
 
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
