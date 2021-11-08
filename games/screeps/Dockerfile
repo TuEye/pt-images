@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM node:12-buster-slim
+FROM        --platform=$BUILDPLATFORM redis:buster
 
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
@@ -31,8 +31,7 @@ ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN         apt update \
               && apt upgrade -y \
-              && apt install -y tar curl git build-essential tcl python python3 redis-server iproute2 telnet net-tools netcat tzdata gnupg \
-              && update-rc.d redis-server defaults \
+              && apt install -y tar curl git build-essential tcl python python3 iproute2 telnet net-tools netcat tzdata gnupg nodejs \
               && useradd -m -d /home/container container
 
 USER        container
