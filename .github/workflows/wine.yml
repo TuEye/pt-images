@@ -16,7 +16,6 @@ jobs:
       matrix:
         tag:
           - wine-expect
-          - wine-expect-testing
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
