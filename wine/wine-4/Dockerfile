@@ -11,14 +11,14 @@ RUN     dpkg --add-architecture i386 \
         && apt install -y --no-install-recommends gnupg2 software-properties-common libntlm0 winbind xvfb xauth python3 libncurses5:i386 libncurses6:i386 expect lsb-release
 
 # Install winehq-stable and with recommends
-RUN     WineVersion="4.0.4~$(lsb_release -sc)"
+ARG     WineVersion="4.0.4"
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key \
         && apt-key add winehq.key \
         && echo "deb https://dl.winehq.org/wine-builds/debian/ bullseye main" >> /etc/apt/sources.list \
         && wget -O- -q download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11/Release.key | apt-key add - \
         && echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11 ./" | tee /etc/apt/sources.list.d/wine-obs.list \
         && apt update \
-        && apt install -y --install-recommends cabextract xvfb winehq-stable=$WineVersion wine-stable=$WineVersion wine-stable-amd64=$WineVersion wine-stable-i386=$WineVersion
+        && apt install -y --install-recommends cabextract xvfb winehq-stable=$WineVersion~$(lsb_release -sc) wine-stable=$WineVersion~$(lsb_release -sc) wine-stable-amd64=$WineVersion~$(lsb_release -sc) wine-stable-i386=$WineVersion~$(lsb_release -sc)
 
 # Set up Winetricks
 RUN	    wget -q -O /usr/sbin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
