@@ -11,8 +11,7 @@ ARG         DEBIAN_FRONTEND=noninteractive
 # Install Required Packages
 RUN         apt update \
               && apt upgrade -y \
-              && apt install -y gnupg2 software-properties-common \
-              && useradd -m -d /home/container container
+              && apt install -y gnupg2 software-properties-common
 
 # Install MongoDB
 RUN	        wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add - \
