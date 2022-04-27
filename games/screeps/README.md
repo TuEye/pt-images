@@ -1,2 +1,2 @@
 #Containers
-Container built on top of Debian to support screeps game server.
+Container built on top of Ubuntu to support screeps game server.
