@@ -25,7 +25,7 @@ RUN					add-apt-repository ppa:chris-lea/redis-server \
 							&& apt install -y redis-server
 
 # Install NodeJS
-RUN					curl -sL https://deb.nodesource.com/setup_8.x | -E bash - \
+RUN					curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 						  && apt update \
 							&& apt install -y nodejs
 
