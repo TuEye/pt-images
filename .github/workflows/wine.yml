@@ -16,7 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - wine-expect
           - wine-4
           - wine-5
           - wine-6
