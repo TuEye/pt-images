@@ -20,6 +20,7 @@ jobs:
           - wine-4
           - wine-5
           - wine-6
+          - latest
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
