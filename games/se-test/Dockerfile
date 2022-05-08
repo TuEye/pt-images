@@ -38,14 +38,14 @@ ENV     XVFB=1
 ENV			WINEARCH=win64
 #ENV			WINEDEBUG=-all
 
-RUN			Xvfb :0 -screen 0 1024x768x16 & \
-				wineboot --init /nogui \
-				&& /usr/sbin/winetricks corefonts \
-				&& /usr/sbin/winetricks -q vcrun2017 \
-				&& /usr/sbin/winetricks -q --force dotnet48 \
-				&& /usr/sbin/winetricks sound=disabled \
-				&& /usr/sbin/winetricks -q vcrun2013 \
-				&& rm -rf ~/.cache
+RUN			su container -c 'Xvfb :0 -screen 0 1024x768x16' & \
+				su container -c 'wineboot --init /nogui' \
+				&& su container -c '/usr/sbin/winetricks corefonts' \
+				&& su container -c '/usr/sbin/winetricks -q vcrun2017' \
+				&& su container -c '/usr/sbin/winetricks -q --force dotnet48' \
+				&& su container -c '/usr/sbin/winetricks sound=disabled' \
+				&& su container -c '/usr/sbin/winetricks -q vcrun2013' \
+				&& su container -c 'rm -rf ~/.cache'
 
 USER    container
 WORKDIR	/home/container
