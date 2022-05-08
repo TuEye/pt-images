@@ -18,6 +18,7 @@ jobs:
         tag:
           - screeps
           - source
+          - se-test
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
