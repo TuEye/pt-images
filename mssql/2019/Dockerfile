@@ -1,7 +1,7 @@
 # -----------------------------------------------------
 # MSSQL Image for Pterodactyl
 # -----------------------------------------------------
-FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/mssql/server:2019-latest
+FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/mssql/server:2019-CU16-ubuntu-20.04
 
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
