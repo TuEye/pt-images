@@ -7,6 +7,8 @@ LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
 ENV         DEBIAN_FRONTEND noninteractive
 
+USER 				root
+
 RUN         apt update -y \
 						&& apt upgrade -y \
             && apt install -y netcat \
