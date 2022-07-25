@@ -6,6 +6,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/mssql/server:2019
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
 ENV         DEBIAN_FRONTEND noninteractive
+ENV         ACCEPT_EULA="Y"
 
 USER 				root
 
