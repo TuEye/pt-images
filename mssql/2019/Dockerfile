@@ -6,12 +6,11 @@ FROM        --platform=$TARGETOS/$TARGETARCH mcr.microsoft.com/mssql/server:2019
 LABEL       author="TuEye" maintainer="tueye@tuworld.de"
 
 ENV         DEBIAN_FRONTEND noninteractive
-ENV         ACCEPT_EULA="Y"
 
 USER 				root
 
 RUN         apt update -y \
-						&& apt upgrade -y \
+						&& env ACCEPT_EULA=Y apt upgrade -y \
             && apt install -y netcat \
             && useradd -d /home/container -m container -s /bin/bash
 
